@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nayanrdeveloper/todo_list.git"
+    "url": "https://github.com/kiran385/ToDo-List-MERN-APP.git"
   },
   "keywords": [
     "MERN",
@@ -22,12 +22,9 @@
     "Todo-list",
     "todo"
   ],
-  "author": "Nayan Radadiya",
+  "author": "Kiran Baraiya",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nayanrdeveloper/todo_list/issues"
-  },
-  "homepage": "https://github.com/nayanrdeveloper/todo_list#readme",
+  "homepage": "https://{kiran385}.github.io/{ToDo-List-MERN-APP}/",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2",
