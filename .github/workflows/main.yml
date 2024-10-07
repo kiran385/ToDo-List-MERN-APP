@@ -20,19 +20,19 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          cd "ToDo List"
+          cd "ToDo-List-MERN-APP"
           npm install
 
       - name: Build Project
         run: |
-          cd "ToDo List"
+          cd "ToDo-List-MERN-APP"
           npm run build
 
       - name: Upload artifact to enable deployment
         uses: actions/upload-artifact@v3
         with:
           name: production file
-          path: ./ToDo\ List/build
+          path: ./ToDo-List-MERN-APP/build
 
   # Deploy Job
   deploy:
@@ -43,10 +43,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: production file
-          path: ./ToDo\ List/build
+          path: ./ToDo-List-MERN-APP/build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ KIRAN_BARAIYA }}  # Replace with your secret key
-          publish_dir: ./ToDo\ List/build
+          github_token: ${{ secrets.KIRAN_BARAIYA }}  # Replace with your secret key
+          publish_dir: ./ToDo-List-MERN-APP/build
