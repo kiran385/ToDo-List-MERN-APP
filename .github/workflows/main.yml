@@ -48,5 +48,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ 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 }}  # Replace with your secret key
+          github_token: ${{ KIRAN_BARAIYA }}  # Replace with your secret key
           publish_dir: ./ToDo\ List/build
