@@ -1,0 +1,52 @@
+name: CI/CD for React Todo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  # Build Job
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+
+      - name: Install Dependencies
+        run: |
+          cd "ToDo List"
+          npm install
+
+      - name: Build Project
+        run: |
+          cd "ToDo List"
+          npm run build
+
+      - name: Upload artifact to enable deployment
+        uses: actions/upload-artifact@v3
+        with:
+          name: production file
+          path: ./ToDo\ List/build
+
+  # Deploy Job
+  deploy:
+    needs: build
+    runs-on: windows-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: production file
+          path: ./ToDo\ List/build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ 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 }}  # Replace with your secret key
+          publish_dir: ./ToDo\ List/build
