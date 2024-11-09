@@ -1,4 +1,4 @@
-name: CI/CD for React Todo
+name: Deploy MERN App to Local Runner
 
 on:
   push:
@@ -31,9 +31,14 @@ jobs:
       - name: Build Frontend
         run: |
           cd frontend
-          npm run dev
+          npm run build
+
+      # Copy build folder from frontend to the backend's public directory
+      - name: Copy frontend build to backend
+        run: |
+          cp -r frontend/build/* backend/public/
 
       - name: Deploy Backend
         run: |
           cd backend
-          node app.js
+          npm start
